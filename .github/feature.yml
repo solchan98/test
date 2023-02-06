@@ -1,0 +1,19 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  deploy:
+    runs-on: ununtu-latest
+    steps:
+      -name: Deploy
+       uses: actions/checkout@v3
+       with:
+         password: ${{ secrets.PASSWORD }}
+         host: ${{ secrets.HOST }}
+         username: ${{ secrets.USER_NAME }}
+         port: ${{ secrets.PORT }}
+         script: ${{ secrets.SCRIPT }} 
