@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Deploy
         uses: actions/checkout@v3
+        
+      - name: logging
+        run: |
+          ls -al
 
       
       - name: Deploy
