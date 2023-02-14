@@ -102,7 +102,7 @@ jobs:
       - name: Publish
         uses: nogsantos/scp-deploy@master
         with:
-          src: backend/back-deploy.sh
+          src: back-deploy.sh
           host: ${{ secrets.REMOTE_IP }}
           remote: /home/ubuntu
           port: 22
