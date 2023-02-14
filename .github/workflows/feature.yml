@@ -106,7 +106,4 @@ jobs:
           username: ${{ secrets.REMOTE_SSH_ID }}
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: ${{ secrets.REMOTE_SSH_PORT }}
-          script: |
-            sudo docker rm -f dorothy
-            sudo docker run --name dorothy -d -p 8080:8080 --network dorothy-network dorothy5z/dorothy:latest
-            sudo docker image prune -f
+          script: back-deploy.sh
