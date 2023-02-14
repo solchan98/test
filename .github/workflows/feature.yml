@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: ${{ secrets.REMOTE_SSH_PORT }}
           script: |
-            sudo rm -rf dist dist.tar
+            sudo rm -rf dist
             sudo tar -xvf dist.tar
             sudo systectl reload nginx
 
