@@ -28,6 +28,9 @@ jobs:
 
       - name: Copy single file to remote
         uses: garygrossgarten/github-action-scp@release
+        run: |
+          pwd
+          ls -al
         with:
           local: dist.tar
           remote: /home/ubuntu/
