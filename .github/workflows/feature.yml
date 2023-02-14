@@ -33,7 +33,7 @@ jobs:
           host: ${{ secrets.HOST }}
           remote: /home/ubuntu
           port: 22
-          user: ${{ secrets.REMOTE_SSH_ID }}
+          user: ubuntu
           key: ${{ secrets.REMOTE_SSH_KEY }}
 
   back-deploy:
