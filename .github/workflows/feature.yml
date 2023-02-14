@@ -28,11 +28,8 @@ jobs:
 
       - name: Copy single file to remote
         uses: garygrossgarten/github-action-scp@release
-        run: |
-          pwd
-          ls -al
         with:
-          local: dist.tar
+          local: /home/runner/work/test/test/frontend/dist.tar
           remote: /home/ubuntu/
           host: ${{ secrets.HOST }}
           username: ${{ secrets.REMOTE_SSH_ID }}
