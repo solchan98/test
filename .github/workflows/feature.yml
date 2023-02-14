@@ -22,8 +22,8 @@ jobs:
             cd frontend
             npm install
             CI="" npm run build
-            tar -cvf dist.tar dist
             cp src/assets/* dist/assets/
+            tar -cvf dist.tar dist
 
       - name: Publish
         uses: nogsantos/scp-deploy@master
