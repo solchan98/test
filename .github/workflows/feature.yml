@@ -30,10 +30,10 @@ jobs:
         uses: nogsantos/scp-deploy@master
         with:
           src: /dist.tar
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.REMOTE_IP }}
           remote: /home/ubuntu
           port: 22
-          user: ubuntu
+          user: ${{ secrets.REMOTE_SSH_ID }}
           key: ${{ secrets.REMOTE_SSH_KEY }}
 
   back-deploy:
