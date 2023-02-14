@@ -62,7 +62,8 @@ jobs:
 
       - name: Set up Properties
         run: |
-                mkdir ./src/main/resources
+                cd backend
+                mkdir -p ./src/main/resources
                 echo "${{ secrets.APP_PROPERTIES }}" > ./src/main/resources/application.yml
 
       - name: Validate Gradle wrapper
