@@ -72,7 +72,7 @@ jobs:
       - name: Build With Gradle
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
-          arguments: 'build -x test'
+          arguments: 'cd backend && build -x test'
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
