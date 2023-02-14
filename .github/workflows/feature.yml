@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  front-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
@@ -20,4 +20,20 @@ jobs:
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: ${{ secrets.REMOTE_SSH_PORT }}
           script: |
-            echo > Goot.md 'hello?'
+            echo > Frond.md 'hello?'
+
+  back-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: actions/checkout@v3
+
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_SSH_ID }}
+          key: ${{ secrets.REMOTE_SSH_KEY }}
+          port: ${{ secrets.REMOTE_SSH_PORT }}
+          script: |
+            echo > Backend.md 'hello?'
