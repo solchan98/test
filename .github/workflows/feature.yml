@@ -18,7 +18,7 @@ jobs:
           node-version: 18
 
       - name: Build
-        run: scripts/front-build.sh
+        run: sudo sh scripts/front-build.sh
 
       - name: Publish
         uses: nogsantos/scp-deploy@master
