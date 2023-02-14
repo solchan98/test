@@ -26,15 +26,14 @@ jobs:
             pwd
             ls -al
 
-      - name: Deploy
-        uses: appleboy/ssh-action@master
+      - name: Copy single file to remote
+        uses: garygrossgarten/github-action-scp@release
         with:
-          host: ${{ secrets.REMOTE_IP }}
+          local: dist.tar
+          remote: /home/ubuntu/
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.REMOTE_SSH_ID }}
-          key: ${{ secrets.REMOTE_SSH_KEY }}
-          port: ${{ secrets.REMOTE_SSH_PORT }}
-          source: "/home/runner/work/test/test/frontend/dist.tar"
-          destination: "/home/ubuntu"
+          privateKey: ${{ secrets.REMOTE_SSH_KEY }}
 
   back-deploy:
     runs-on: ubuntu-latest
