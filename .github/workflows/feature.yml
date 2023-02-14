@@ -18,13 +18,7 @@ jobs:
           node-version: 18
 
       - name: Build
-        run: |
-            cd frontend
-            npm install
-            CI="" npm run build
-            mkdir -p dist/src/assets
-            cp src/assets/* dist/src/assets/
-            tar -cvf dist.tar dist
+        run: scripts/front-build.sh
 
       - name: Publish
         uses: nogsantos/scp-deploy@master
@@ -74,7 +68,6 @@ jobs:
 
       - name: Execute Gradle build
         run: |
-                pwd
                 cd backend
                 ./gradlew build -x test
 
@@ -102,7 +95,7 @@ jobs:
       - name: Publish
         uses: nogsantos/scp-deploy@master
         with:
-          src: back-deploy.sh
+          src: scripts/back-deploy.sh
           host: ${{ secrets.REMOTE_IP }}
           remote: /home/ubuntu
           port: 22
