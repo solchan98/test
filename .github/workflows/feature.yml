@@ -45,7 +45,7 @@ jobs:
           script: |
             sudo rm -rf dist
             sudo tar -xvf dist.tar
-            sudo systectl reload nginx
+            sudo systemctl reload nginx
 
 
   back-deploy:
