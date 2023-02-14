@@ -12,6 +12,17 @@ jobs:
       - name: Deploy
         uses: actions/checkout@v3
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Build
+        run: |
+            npm install
+            CI="" npm run build
+            tar -cvf dist.tar dist
+
       - name: Deploy
         uses: appleboy/ssh-action@master
         with:
@@ -19,8 +30,8 @@ jobs:
           username: ${{ secrets.REMOTE_SSH_ID }}
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: ${{ secrets.REMOTE_SSH_PORT }}
-          script: |
-            echo > Frond.md 'hello?'
+          source: "dist.tar"
+          destination: "dist"
 
   back-deploy:
     runs-on: ubuntu-latest
