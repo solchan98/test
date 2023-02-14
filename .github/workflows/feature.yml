@@ -23,6 +23,8 @@ jobs:
             npm install
             CI="" npm run build
             tar -cvf dist.tar dist
+            pwd
+            ls -al
 
       - name: Deploy
         uses: appleboy/ssh-action@master
