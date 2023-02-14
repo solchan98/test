@@ -29,7 +29,7 @@ jobs:
       - name: Publish
         uses: nogsantos/scp-deploy@master
         with:
-          src: /dist.tar
+          src: dist.tar
           host: ${{ secrets.REMOTE_IP }}
           remote: /home/ubuntu
           port: 22
