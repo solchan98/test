@@ -9,7 +9,7 @@ jobs:
   front-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Setup Node
@@ -22,7 +22,7 @@ jobs:
             cd frontend
             npm install
             CI="" npm run build
-            cp src/assets/* dist/assets/
+            cp src/assets/* dist/src/assets/
             tar -cvf dist.tar dist
 
       - name: Publish
@@ -51,7 +51,7 @@ jobs:
   back-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Deploy
