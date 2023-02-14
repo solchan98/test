@@ -19,6 +19,7 @@ jobs:
 
       - name: Build
         run: |
+            cd frontend
             npm install
             CI="" npm run build
             tar -cvf dist.tar dist
