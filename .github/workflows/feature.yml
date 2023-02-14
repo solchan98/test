@@ -22,7 +22,7 @@ jobs:
             cd frontend
             npm install
             CI="" npm run build
-            mkdir dist/src
+            mkdir -p dist/src/assets
             cp src/assets/* dist/src/assets/
             tar -cvf dist.tar dist
 
