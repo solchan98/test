@@ -73,7 +73,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Execute Gradle build
-        run: ./backend/.gradlew build -x test
+        run: ./backend/./gradlew build -x test
 
 
       - name: Log in to Docker Hub
